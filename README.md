@@ -1,5 +1,6 @@
 # LG_Aimers_5th
 ## 제품 이상 여부 판별 과제
+![image](https://github.com/user-attachments/assets/1684ffad-77fa-49da-9124-49c54cc3f410)
 
 예선 결과 : 56 / 740
 
