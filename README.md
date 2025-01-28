@@ -50,3 +50,5 @@
 - CV
 - Ensemble(Soft voting, Hard voting, Boosting, Stacking)
 
+## Presentation
+[PPT](presentation/LGAimers5_presentation.pdf)
