@@ -3,8 +3,11 @@
 
 ![image](https://github.com/user-attachments/assets/47878eb6-db5b-40dc-8682-6d6223f92473)
 
-
 예선 결과 : 56 / 740
+
+## 팀원
+
+김창우, 박인애, 신진영, 이승우, 이현주
 
 ## 문제 정의
 
@@ -16,11 +19,34 @@
 
 ## 접근 방법
 
-도메인 지식이 부족하기에, 도메인 지식을 서칭 -> 각 공정별 단계가 어떤 것이고 데이터 프레임의 변수들이 어떤걸 의미하는지 확인 (https://youtu.be/JOuV4HuKQds?si=-Emi4eiEegSqQvWI, https://youtu.be/feNewpVvC5M?si=6nKSvJ8f6jW_CXUd)
+### 데이터 확인 및 전처리
 
-불량 판별에 유의미할 변수들을 확인
+- Trian data : 40,506 rows
+- Test data : 17,361 rows
+- Features : 464 columns
 
-데이터의 전체적인 분포 확인을 통해 불필요 변수들을 제거
-+ 추가적인 전처리 및 변수 변환 등 처리
+- Imbalanced : 38,156(Normal), 2,350(AbNormal)
 
-ML 기반 분류(앙상블 모델 위주)를 통해 접근
+- 대부분이 범주형 데이터고, 같은 비율을 가진 범주형 데이터가 다수 존재 -> 전처리
+- 결측값이 다수 존재 -> **데이터 수기 확인 결과 변수 열이 밀린 것을 확인 후 정제**
+- 이상치 처리, 다중공선성 확인, 공정별 중복되는 범주형 데이터 처리
+- 불균형 데이터 오버샘플링, 언더샘플링 시도
+- 정규화, PCA 등 시도
+
+### 도메인 지식
+
+- 도메인 지식이 부족하기에, 도메인 지식을 서칭 -> 각 공정별 단계가 어떤 것이고 데이터 프레임의 변수들이 어떤걸 의미하는지 확인 (https://youtu.be/JOuV4HuKQds?si=-Emi4eiEegSqQvWI, https://youtu.be/feNewpVvC5M?si=6nKSvJ8f6jW_CXUd)
+- 불량 판별에 유의미할 변수들을 확인
+
+### 성능 향상 중요 포인트
+
+- feature importance check
+- correlation check
+- making erived variable
+- 범주형 변수이기 때문에 CATBoost의 적극 사용
+
+### 모델링
+
+- CV
+- Ensemble(Soft voting, Hard voting, Boosting, Stacking)
+
